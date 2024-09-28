@@ -1,0 +1,14 @@
+name: CI - Code Quality Checks
+
+on:
+  push:
+    branches:
+     - master
+  pull_request:
+
+  jobs:
+   CI_CHECKS:
+    runs-on: ubuntu-latest
+    steps:
+    - name: ROBOTIDY
+      run: poetry run robotidy --check .
