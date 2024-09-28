@@ -4,6 +4,17 @@ name: CI - Code Quality Checks
     branches:
       - master
   pull_request: null
+runs:
+ using: composite
+ steps: 
+  - name: Checkout code
+    uses: actions/checkout"v4
+  - name: Create a virtual environment
+    run : py -m venv venv
+  - name: Activate the virtual environment
+    run : .\venv\Scripts\activate
+  - name: download the necessary libraries
+    run: pip install -r requirements.txt
 jobs:
   CI_CHECKS:
     runs-on: ubuntu-latest
