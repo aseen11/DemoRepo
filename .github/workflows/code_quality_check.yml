@@ -1,0 +1,23 @@
+name: CI - Code Quality Checks
+'on':
+  push:
+    branches:
+      - master
+  pull_request: null
+jobs:
+  CI_CHECKS:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Phyton
+        uses : actions/setup-python@v5
+      - name: Create a virtual environment
+        run: py -m venv venv
+        shell: bash
+      - name: Activate the virtual environment
+        run: .\venv\Scripts\activate
+      - name: download the necessary libraries
+        run: pip install -r requirements.txt
+      - name: ROBOTIDY
+        run: poetry run robotidy --check .
