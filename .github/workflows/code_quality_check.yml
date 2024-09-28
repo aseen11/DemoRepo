@@ -3,7 +3,7 @@ name: CI - Code Quality Checks
 on:
    push:
      branches:
-      -  master
+       -  master
   pull_request:
 
 jobs:
