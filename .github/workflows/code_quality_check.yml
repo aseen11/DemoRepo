@@ -14,6 +14,7 @@ jobs:
         uses : actions/setup-python@v5
       - name: Create a virtual environment
         run: py -m venv venv
+        shell: bash
       - name: Activate the virtual environment
         run: .\venv\Scripts\activate
       - name: download the necessary libraries
